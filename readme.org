@@ -23,7 +23,18 @@ So if we plan to terminate our computation of searching for the next palindrome 
 
 *The design of the CLI*
 
-CLI.scala houses the interface to our application's core logic. CLI in this case is just a procedure, which calls core methods on our input array to finally transform it into a string, which is then just printed to the console.
+CLI.scala houses the interface to our application's core logic. CLI in this case is just a procedure, which calls core methods on our input array to finally transform it into a string, which is then just printed to the console. It happens as per the following plan.
+
+- ~args~ is the input array
+- drop ~args~' head, we don't need it
+- map a ~_.toInt~ to parse the String to Int
+- map ~validate~ to transform the array of ints to an array of optional ints
+- map those optional ints with ~nextPal~ to get the next palindrome
+- map those optional next palindromes, each with ~getOrElse(-1)~ to unwrap ~Some~
+- wherever the input is invalid, we get an error code ~-1~
+- now we just make string out of this array and print to console
+
+-----
 
 The separation of backend logic, into individual methods, improves testability, as each individual component can be tested independently.
 
