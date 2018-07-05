@@ -27,6 +27,11 @@ object helpers {
     iter(n,0)
   }
 
+  /* this method returns a streamObject
+   * which contains a stream of palindromes from n
+   * if n is a palindrome itself, the stream starts from n
+   * else the stream starts from next palindrome bigger than n
+   * */
   def palStreamFrom(n:Int): Stream[Int] = toPal(n) #:: palStreamFrom(toPal(n+1))
 
 }

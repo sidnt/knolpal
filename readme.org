@@ -1,0 +1,30 @@
+* Usage
+- An sbt project.
+- ~sbt test~ runs the tests
+- ~sbt run~ with correct arguements, runs the program
+
+* Design Notes
+
+*It is unnecessary to parameterize our app with the number of test cases*
+
+We can just pass in an array of inputs and the app prints out the corresponding next palindromes to the console.
+
+-----
+
+*Why Stream based solution?*
+
+Streams were used to answer the question, 'What do we do if the input contains a palindrome itself?'
+
+Going strictly by the brief, we are then required to output the next big palindrome. So if this edge case isn't handled, the program would work well on non palindrome inputs, but with palindromes, it might just print them as is.
+
+So if we plan to terminate our computation of searching for the next palindrome purely on the basis of whether the current number being tested is a palindrome or not, the program won't handle initial inputs which are also palindromes.
+
+-----
+
+*The design of the CLI*
+
+CLI.scala houses the interface to our application's core logic. CLI in this case is just a procedure, which calls core methods on our input array to finally transform it into a string, which is then just printed to the console.
+
+The separation of backend logic, into individual methods, improves testability, as each individual component can be tested independently.
+
+-----
