@@ -7,7 +7,7 @@ object CLI extends App {
 
   val inputInts: Array[Int] =
     args.                   // :Array[String]      | args is the array containing the console inputints as strings
-      tail.                 // :Array[String]      | the first argument(a/2 the problemstatement) is notneeded in this implementation
+      //tail.               // :Array[String]      | the first argument(according2 the problemstatement) is notneeded in this implementation
       map(_.toInt)          // :Array[Int]         | because args contains strings 2bparsed to Ints
 
   def outputOf(input: Array[Int]): String =
