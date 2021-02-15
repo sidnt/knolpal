@@ -1,3 +1,7 @@
+* About
+
+A CLI app, which takes in a list of integers and prints out the next big palindrome for each of them
+
 * Usage
 - An sbt project.
 - ~sbt test~ runs the tests
